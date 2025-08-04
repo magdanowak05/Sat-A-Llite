@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Sat-A-Lite</title>
+  <style>
+    body {
+      background: url("/static/banner.png") no-repeat center center fixed;
+      background-size: cover;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      color: white;
+      text-shadow: 0px 0px 8px black;
+    }
+
+    .button {
+      background-color: rgba(0, 0, 0, 0.6);
+      border: none;
+      padding: 15px 30px;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    .button:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Styl modala */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      background-color: #222;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      color: white;
+    }
+
+    .close {
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Witaj w Sat-A-Lite!</h1>
+  <a href="/upload"><button class="button">WYPRÓBUJ</button></a>
+  <button class="button" onclick="showModal('modal1')">JAK TO DZIAŁA?</button>
+  <button class="button" onclick="showModal('modal2')">CZYM JEST ANALIZA...</button>
+
+  <!-- MODALE -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal1')">&times;</span>
+      <h2>Jak to działa?</h2>
+      <p>Tutaj możesz dokonać swojej pierwszej analizy danych satelitarnych!<br>
+	Kiedy klikniesz przycisk "wypróbuj", program poprosi Cię o wybranie 4 zdjęć z twojego folderu - pamiętaj, żeby go przygotować wcześniej!<br>
+	Następnie zostanie utworzony kolaż Twojego obszaru - na jednym obrazie zobaczysz widok z satelity z czterech różnych perspektyw czasowych.<br>
+	Dzięki temu, będziesz mógł/mogła zobaczyć, jak zmieniał się interesujący Cię obszar - i jakie zmiany uchwyciły satelity!</p>
+    </div>
+  </div>
+
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal2')">&times;</span>
+      <h2>Czym jest analiza satelitarna?</h2>
+      <p>Analiza danych satelitarnych to sposób na „czytanie” informacji, które zbierają satelity krążące wokół Ziemi.<br>
+	Takie dane to na przykład zdjęcia naszej planety z kosmosu, ale też pomiary temperatury, wilgotności, jakości powietrza, czy poziomu wód.<br>
+	Dzięki analizie tych danych możemy lepiej zrozumieć, co dzieje się na Ziemi — od zmian klimatycznych, przez susze i pożary, aż po rozwój miast czy stan upraw rolnych.<br>
+	Umożliwia to szybsze reagowanie na katastrofy naturalne, przewidywanie pogody czy monitorowanie wycinek lasów.<br>
+	To trochę jak patrzenie na świat z lotu ptaka, ale z bardzo precyzyjnymi narzędziami.</p>
+    </div>
+  </div>
+
+  <!-- JavaScript do modali -->
+  <script>
+    function showModal(id) {
+      document.getElementById(id).style.display = "block";
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = "none";
+    }
+
+    // zamykanie modala klikając poza nim
+    window.onclick = function(event) {
+      const modals = document.querySelectorAll('.modal');
+      modals.forEach(modal => {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+    }
+  </script>
+</body>
+</html>

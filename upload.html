@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Wyślij zdjęcia</title>
+</head>
+<body>
+  <h2>Wybierz dokładnie 4 zdjęcia</h2>
+  <form method="POST" enctype="multipart/form-data">
+    <label>Model satelity:</label><br>
+    <input type="text" name="sat_model" required><br><br>
+
+    <label>Typ orbity:</label><br>
+    <input type="text" name="orbit" required><br><br>
+
+    <label>Wgraj zdjęcia:</label><br>
+    <input type="file" name="images" multiple required accept="image/*"><br><br>
+
+    <button type="submit">Utwórz kolaż</button>
+  </form>
+  <br>
+  <a href="/">← Powrót</a>
+</body>
+</html>
